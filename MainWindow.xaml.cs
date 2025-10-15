@@ -1,28 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+<Window x:Class="TriangleChecker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Проверка треугольника" Height="300" Width="400"
+        Background="Coral">
+    <Grid Margin="20" Background="BlueViolet">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-namespace Programm1
-{
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
-    }
-}
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Введите длины сторон треугольника:" 
+                   FontSize="14" FontWeight="Bold" Margin="10,0,-10,20"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Сторона A:" Margin="20,0,10,10"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Name="txtSideA" Margin="0,0,20,10"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Сторона B:" Margin="20,0,10,10"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Name="txtSideB" Margin="0,0,20,10"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Сторона C:" Margin="20,0,10,10"/>
+        <TextBox Grid.Row="3" Name="txtSideC" Margin="90,0,20,30" Grid.ColumnSpan="2"/>
+
+        <Button Grid.Row="4" Grid.ColumnSpan="2" Background="Blue" Name="btnCheck" Content="Проверить" 
+                Click="BtnCheck_Click" Width="100" Height="30" HorizontalAlignment="Center"/>
+
+        <TextBlock Grid.Row="5" Grid.ColumnSpan="2" Name="txtResult" 
+                   Margin="10,9,10,10" TextWrapping="Wrap" FontSize="12"/>
+    </Grid>
+</Window>
